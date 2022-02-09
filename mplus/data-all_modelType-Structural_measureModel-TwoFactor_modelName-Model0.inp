@@ -1,0 +1,33 @@
+TITLE: Two Factor Model 0: Baseline
+DATA: FILE is tidy_roi_data.dat;
+VARIABLE:
+  NAMES are subject pHipp PREC PCC MPFC PHC RSC aAG pAG SceCorr ColCorr EmoCorr;
+  USEVARIABLES are subject pHipp PREC PCC MPFC PHC RSC aAG pAG SceCorr ColCorr EmoCorr;
+  CATEGORICAL = SceCorr ColCorr EmoCorr;
+  CLUSTER = subject;
+ANALYSIS:
+TYPE = TWOLEVEL;
+ESTIMATOR = WLSMV;
+MODEL:
+%WITHIN%
+vPMN BY RSC PHC pAG;
+dPMN BY MPFC pHIPP PREC PCC aAG;
+MemQ BY SceCorr (1) 
+ColCorr (2) 
+EmoCorr (3);
+MemQ ON vPMN dPMN;
+%BETWEEN%
+pHipp-EmoCorr;
+MemQb BY SceCorr (1) 
+ColCorr (2) 
+EmoCorr (3);
+pHipp WITH PREC-pAG;
+PREC WITH PCC-pAG;
+PCC WITH MPFC-pAG;
+MPFC WITH PHC-pAG;
+PHC WITH RSC-pAG;
+RSC WITH aAG pAG;
+aAG WITH pAG;
+MemQb WITH pHIPP-pAG;
+Output:
+stdyx

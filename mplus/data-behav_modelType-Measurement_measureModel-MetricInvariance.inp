@@ -1,0 +1,21 @@
+TITLE: Null Model -- is multilevel modeling necessary?
+DATA: FILE is tidy_roi_data.dat;
+VARIABLE:
+  NAMES are subject pHipp PREC PCC MPFC PHC RSC aAG pAG SceCorr ColCorr EmoCorr;
+  USEVARIABLES are subject SceCorr ColCorr EmoCorr;
+  CATEGORICAL = SceCorr ColCorr EmoCorr;
+  CLUSTER = subject;
+ANALYSIS: 
+TYPE = TWOLEVEL; 
+ESTIMATOR = WLSMV;
+MODEL:
+%WITHIN%
+MemQ BY SceCorr (1) 
+ColCorr (2) 
+EmoCorr (3);
+%BETWEEN%
+MemQb BY SceCorr (1) 
+ColCorr (2) 
+EmoCorr (3);
+Output:
+stdyx TECH1;

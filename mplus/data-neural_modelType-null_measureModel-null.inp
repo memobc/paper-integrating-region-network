@@ -1,0 +1,24 @@
+TITLE: Null Model -- is multilevel modeling necessary?
+DATA: FILE is tidy_roi_data.dat;
+VARIABLE:
+  NAMES are subject pHipp PREC PCC MPFC PHC RSC aAG pAG SceCorr ColCorr EmoCorr;
+  USEVARIABLES are subject pHipp PREC PCC MPFC PHC RSC aAG pAG;
+  CLUSTER = subject;
+ANALYSIS: 
+TYPE = TWOLEVEL; 
+ESTIMATOR = MLR;
+MODEL:
+%WITHIN%
+pHipp-pAG;
+pHipp WITH pHipp-pAG;
+PREC WITH pHipp-pAG;
+PCC WITH pHipp-pAG;
+MPFC WITH pHipp-pAG;
+PHC WITH pHipp-pAG;
+RSC WITH pHipp-pAG;
+aAG WITH pHipp-pAG;
+pAG WITH pHipp-pAG;
+%BETWEEN%
+pHipp-pAG@0
+Output:
+TECH1;
