@@ -1,0 +1,1688 @@
+Mplus VERSION 8.2 (Linux)
+MUTHEN & MUTHEN
+02/15/2022   9:21 AM
+
+INPUT INSTRUCTIONS
+
+  Montecarlo:
+  names are
+  pHipp PREC PCC MPFC PHC RSC aAG pAG SceCorr ColCorr EmoCorr;
+  nobservations = 3888;
+  ncsizes = 2;
+  csizes = 22 (144) 6 (120);
+  nreps = 500;
+  generate = SceCorr (1) ColCorr (1) EmoCorr (1);
+  categorical = SceCorr ColCorr EmoCorr;
+  seed = 469385;
+
+  Analysis:
+  type is twolevel;
+  estimator is wlsmv;
+
+  Model population:
+  %within%
+  vPMN by RSC@1 PHC*0.959 pAG*1.807;
+  dPMN by MPFC@1 pHIPP*0.477 PREC*0.924 PCC*0.981 aAG*1.604;
+  MemQ by SceCorr@1
+          ColCorr*0.525 (2)
+          EmoCorr*0.519 (3);
+  MemQ on vPMN*2.294 dPMN*-0.296;
+  vPMN with dPMN*0.009;
+  vPMN*0.010 dPMN*0.020;
+  pHIPP*0.019 PREC*0.024 PCC*0.022 MPFC*0.055;
+  PHC*0.019 RSC*0.015 aAG*0.050 pAG*0.054;
+  MemQ*0.958;
+
+  %between%
+  MemQb by SceCorr@1
+           ColCorr*0.525 (2)
+           EmoCorr*0.519 (3);
+  pHIPP*0.001 PREC*0.006 PCC*0.007 MPFC*0.003;
+  PHC*0.005 RSC*0.004 aAG*0.023 pAG*0.014;
+  MemQb*0.478;
+  MemQb with pHIPP*0.007 PREC*0.030 PCC*0.017 MPFC*-0.004;
+  MemQb with PHC*0.019 RSC*0.034 aAG*0.011 pAG*0.009;
+
+  pHipp with PREC*0.001 PCC*0.001 MPFC*0.000 PHC*0.000;
+  pHipp with RSC*0.001 aAG*0.001 pAG*-0.001;
+  PREC with PCC*0.002 MPFC*0.001 PHC*0.002 RSC*0.002 aAG*-0.001 pAG*-0.001;
+  PCC with MPFC*0.001 PHC*0.000 RSC*0.002 aAG*0.001 pAG*-0.002;
+  MPFC with PHC*-0.001 RSC*0.000 aAG*0.001 pAG*-0.001;
+  PHC with RSC*0.000 aAG*-0.006 pAG*0.001;
+  RSC with aAG*0.003 pAG*-0.001;
+  aAG with pAG*0.003;
+
+  SCECORR*0.037 COLCORR*0.066 EMOCORR*0.042;
+
+  [pHIPP*0.077 PREC*0.113 PCC*0.143 MPFC*0.134];
+  [PHC*-0.029 RSC*0.048 aAG*0.189 pAG*-0.008];
+  [SCECORR$1*-0.712 COLCORR$1*-0.715 EMOCORR$1*-0.832];
+
+  Model:
+  %within%
+  vPMN by RSC@1 PHC*0.959 pAG*1.807;
+  dPMN by MPFC@1 pHIPP*0.477 PREC*0.924 PCC*0.981 aAG*1.604;
+  MemQ by SceCorr@1
+          ColCorr*0.525 (2)
+          EmoCorr*0.519 (3);
+  MemQ on vPMN*2.294 dPMN*-0.296;
+  vPMN with dPMN*0.009;
+  vPMN*0.010 dPMN*0.020;
+  pHIPP*0.019 PREC*0.024 PCC*0.022 MPFC*0.055;
+  PHC*0.019 RSC*0.015 aAG*0.050 pAG*0.054;
+  MemQ*0.958;
+
+  %between%
+  MemQb by SceCorr@1
+           ColCorr*0.525 (2)
+           EmoCorr*0.519 (3);
+  pHIPP*0.001 PREC*0.006 PCC*0.007 MPFC*0.003;
+  PHC*0.005 RSC*0.004 aAG*0.023 pAG*0.014;
+  MemQb*0.478;
+  MemQb with pHIPP*0.007 PREC*0.030 PCC*0.017 MPFC*-0.004;
+  MemQb with PHC*0.019 RSC*0.034 aAG*0.011 pAG*0.009;
+
+  pHipp with PREC*0.001 PCC*0.001 MPFC*0.000 PHC*0.000;
+  pHipp with RSC*0.001 aAG*0.001 pAG*-0.001;
+  PREC with PCC*0.002 MPFC*0.001 PHC*0.002 RSC*0.002 aAG*-0.001 pAG*-0.001;
+  PCC with MPFC*0.001 PHC*0.000 RSC*0.002 aAG*0.001 pAG*-0.002;
+  MPFC with PHC*-0.001 RSC*0.000 aAG*0.001 pAG*-0.001;
+  PHC with RSC*0.000 aAG*-0.006 pAG*0.001;
+  RSC with aAG*0.003 pAG*-0.001;
+  aAG with pAG*0.003;
+
+  SCECORR*0.037 COLCORR*0.066 EMOCORR*0.042;
+
+  [pHIPP*0.077 PREC*0.113 PCC*0.143 MPFC*0.134];
+  [PHC*-0.029 RSC*0.048 aAG*0.189 pAG*-0.008];
+  [SCECORR$1*-0.712 COLCORR$1*-0.715 EMOCORR$1*-0.832];
+
+  Output:
+  tech9;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3888
+
+Number of replications
+    Requested                                                  500
+    Completed                                                  500
+Value of seed                                               469385
+
+Number of dependent variables                                   11
+Number of independent variables                                  0
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   PHIPP       PREC        PCC         MPFC        PHC         RSC
+   AAG         PAG
+
+  Binary and ordered categorical (ordinal)
+   SCECORR     COLCORR     EMOCORR
+
+Continuous latent variables
+   VPMN        DPMN        MEMQ        MEMQB
+
+
+Estimator                                                    WLSMV
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                1000
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-02
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-02
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            10
+  Minimum value for logit thresholds                           -10
+  Minimum expected cell size for chi-square              0.100D-01
+Optimization algorithm                                      EMA/FS
+Integration Specifications
+  Type                                                    STANDARD
+  Number of integration points                                   7
+  Dimensions of numerical integration                            0
+  Adaptive quadrature                                           ON
+Link                                                        PROBIT
+Cholesky                                                        ON
+
+
+SUMMARY OF DATA FOR THE FIRST REPLICATION
+
+     Cluster information
+
+       Size (s)    Number of clusters of Size s
+
+        120             6
+        144            22
+
+
+SAMPLE STATISTICS FOR THE FIRST REPLICATION
+
+
+     ESTIMATED SAMPLE STATISTICS
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              SCECORR$      COLCORR$      EMOCORR$      PHIPP         PREC
+              ________      ________      ________      ________      ________
+               -0.573        -0.729        -0.900         0.077         0.126
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+                0.138         0.140        -0.039         0.062         0.210
+
+
+           MEANS/INTERCEPTS/THRESHOLDS
+              PAG
+              ________
+               -0.010
+
+
+           WITHIN LEVEL VARIANCE/COVARIANCE
+              SCECORR       COLCORR       EMOCORR       PHIPP         PREC
+              ________      ________      ________      ________      ________
+ SCECORR        1.000
+ COLCORR        0.309         1.000
+ EMOCORR        0.319         0.243         1.000
+ PHIPP          0.008         0.007         0.009         0.024
+ PREC           0.011         0.017         0.014         0.009         0.040
+ PCC            0.006         0.013         0.015         0.009         0.018
+ MPFC           0.014         0.018         0.007         0.010         0.018
+ PHC            0.017         0.007         0.013         0.004         0.008
+ RSC            0.022         0.014         0.012         0.004         0.008
+ AAG            0.022         0.022         0.010         0.015         0.030
+ PAG            0.034         0.015         0.029         0.009         0.016
+
+
+           WITHIN LEVEL VARIANCE/COVARIANCE
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ PCC            0.039
+ MPFC           0.019         0.075
+ PHC            0.008         0.009         0.028
+ RSC            0.008         0.009         0.009         0.025
+ AAG            0.029         0.032         0.014         0.013         0.102
+ PAG            0.016         0.017         0.017         0.018         0.027
+
+
+           WITHIN LEVEL VARIANCE/COVARIANCE
+              PAG
+              ________
+ PAG            0.088
+
+
+           WITHIN LEVEL CORRELATION
+              SCECORR       COLCORR       EMOCORR       PHIPP         PREC
+              ________      ________      ________      ________      ________
+ SCECORR        1.000
+ COLCORR        0.309         1.000
+ EMOCORR        0.319         0.243         1.000
+ PHIPP          0.052         0.047         0.061         1.000
+ PREC           0.057         0.085         0.072         0.298         1.000
+ PCC            0.029         0.068         0.074         0.299         0.450
+ MPFC           0.050         0.066         0.026         0.231         0.336
+ PHC            0.101         0.045         0.080         0.143         0.228
+ RSC            0.141         0.092         0.074         0.161         0.252
+ AAG            0.069         0.070         0.030         0.314         0.470
+ PAG            0.113         0.049         0.098         0.187         0.264
+
+
+           WITHIN LEVEL CORRELATION
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ PCC            1.000
+ MPFC           0.352         1.000
+ PHC            0.252         0.189         1.000
+ RSC            0.256         0.199         0.346         1.000
+ AAG            0.468         0.366         0.256         0.262         1.000
+ PAG            0.276         0.207         0.344         0.393         0.283
+
+
+           WITHIN LEVEL CORRELATION
+              PAG
+              ________
+ PAG            1.000
+
+
+           BETWEEN LEVEL VARIANCE/COVARIANCE
+              SCECORR       COLCORR       EMOCORR       PHIPP         PREC
+              ________      ________      ________      ________      ________
+ SCECORR        0.219
+ COLCORR        0.117         0.099
+ EMOCORR        0.139         0.085         0.132
+ PHIPP          0.001         0.002         0.002         0.001
+ PREC           0.022         0.017         0.012         0.000         0.005
+ PCC            0.015         0.004         0.013        -0.001         0.001
+ MPFC          -0.002        -0.001        -0.001         0.000         0.001
+ PHC            0.013         0.007         0.001         0.000         0.003
+ RSC            0.018         0.011         0.017         0.000         0.001
+ AAG           -0.030        -0.013        -0.016        -0.001        -0.006
+ PAG            0.013         0.002         0.002         0.000         0.001
+
+
+           BETWEEN LEVEL VARIANCE/COVARIANCE
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ PCC            0.007
+ MPFC           0.001         0.002
+ PHC           -0.001         0.001         0.004
+ RSC            0.003         0.000        -0.001         0.003
+ AAG            0.002         0.000        -0.007         0.000         0.021
+ PAG            0.001         0.000         0.000         0.000         0.002
+
+
+           BETWEEN LEVEL VARIANCE/COVARIANCE
+              PAG
+              ________
+ PAG            0.010
+
+
+           BETWEEN LEVEL CORRELATION
+              SCECORR       COLCORR       EMOCORR       PHIPP         PREC
+              ________      ________      ________      ________      ________
+ SCECORR        1.000
+ COLCORR        0.793         1.000
+ EMOCORR        0.821         0.745         1.000
+ PHIPP          0.122         0.297         0.193         1.000
+ PREC           0.642         0.717         0.463         0.227         1.000
+ PCC            0.367         0.145         0.401        -0.241         0.114
+ MPFC          -0.095        -0.091        -0.065        -0.055         0.262
+ PHC            0.406         0.313         0.057        -0.118         0.667
+ RSC            0.669         0.590         0.810         0.210         0.237
+ AAG           -0.443        -0.284        -0.309        -0.201        -0.587
+ PAG            0.269         0.077         0.063        -0.156         0.102
+
+
+           BETWEEN LEVEL CORRELATION
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ PCC            1.000
+ MPFC           0.123         1.000
+ PHC           -0.159         0.170         1.000
+ RSC            0.649         0.040        -0.224         1.000
+ AAG            0.155        -0.032        -0.689        -0.001         1.000
+ PAG            0.119        -0.098        -0.017         0.060         0.110
+
+
+           BETWEEN LEVEL CORRELATION
+              PAG
+              ________
+ PAG            1.000
+
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       81
+
+Chi-Square Test of Model Fit
+
+        Degrees of freedom                      59
+
+        Mean                                50.174
+        Std Dev                              4.381
+        Number of successful computations      500
+
+             Proportions                   Percentiles
+        Expected    Observed         Expected       Observed
+           0.990       1.000           36.698         41.518
+           0.980       1.000           38.888         42.879
+           0.950       0.990           42.339         44.213
+           0.900       0.882           45.577         45.137
+           0.800       0.478           49.718         46.507
+           0.700       0.244           52.858         47.396
+           0.500       0.048           58.335         49.483
+           0.300       0.008           64.178         51.966
+           0.200       0.002           67.894         53.647
+           0.100       0.000           73.279         56.088
+           0.050       0.000           77.931         58.184
+           0.020       0.000           83.391         59.873
+           0.010       0.000           87.166         63.162
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+        Mean                                 0.000
+        Std Dev                              0.001
+        Number of successful computations      500
+
+             Proportions                   Percentiles
+        Expected    Observed         Expected       Observed
+           0.990       1.000           -0.001          0.000
+           0.980       1.000           -0.001          0.000
+           0.950       1.000           -0.001          0.000
+           0.900       1.000           -0.001          0.000
+           0.800       1.000            0.000          0.000
+           0.700       1.000            0.000          0.000
+           0.500       0.036            0.000          0.000
+           0.300       0.036            0.000          0.000
+           0.200       0.036            0.001          0.000
+           0.100       0.032            0.001          0.000
+           0.050       0.032            0.001          0.000
+           0.020       0.028            0.001          0.002
+           0.010       0.026            0.002          0.004
+
+SRMR (Standardized Root Mean Square Residual) for the WITHIN level
+
+        Mean                                 0.014
+        Std Dev                              0.002
+        Number of successful computations      500
+
+             Proportions                   Percentiles
+        Expected    Observed         Expected       Observed
+           0.990       0.998            0.009          0.010
+           0.980       0.990            0.010          0.010
+           0.950       0.978            0.010          0.011
+           0.900       0.922            0.011          0.011
+           0.800       0.810            0.012          0.012
+           0.700       0.676            0.013          0.013
+           0.500       0.470            0.014          0.014
+           0.300       0.262            0.015          0.015
+           0.200       0.180            0.015          0.015
+           0.100       0.098            0.016          0.016
+           0.050       0.058            0.017          0.017
+           0.020       0.034            0.018          0.018
+           0.010       0.018            0.018          0.019
+
+SRMR (Standardized Root Mean Square Residual) for the BETWEEN level
+
+        Mean                                 0.053
+        Std Dev                              0.013
+        Number of successful computations      500
+
+             Proportions                   Percentiles
+        Expected    Observed         Expected       Observed
+           0.990       0.994            0.023          0.026
+           0.980       0.994            0.026          0.029
+           0.950       0.966            0.031          0.033
+           0.900       0.914            0.036          0.037
+           0.800       0.804            0.042          0.042
+           0.700       0.680            0.046          0.045
+           0.500       0.466            0.053          0.052
+           0.300       0.280            0.059          0.059
+           0.200       0.174            0.064          0.062
+           0.100       0.096            0.069          0.069
+           0.050       0.068            0.074          0.077
+           0.020       0.034            0.079          0.082
+           0.010       0.018            0.083          0.086
+
+
+
+MODEL RESULTS
+
+                              ESTIMATES              S. E.     M. S. E.  95%  % Sig
+                 Population   Average   Std. Dev.   Average             Cover Coeff
+Within Level
+
+ VPMN     BY
+  RSC                 1.000     1.0000     0.0000     0.0000     0.0000 1.000 0.000
+  PHC                 0.959     0.9597     0.0453     0.0433     0.0020 0.922 1.000
+  PAG                 1.807     1.8055     0.0813     0.0786     0.0066 0.934 1.000
+
+ DPMN     BY
+  MPFC                1.000     1.0000     0.0000     0.0000     0.0000 1.000 0.000
+  PHIPP               0.477     0.4787     0.0249     0.0234     0.0006 0.932 1.000
+  PREC                0.924     0.9280     0.0371     0.0371     0.0014 0.940 1.000
+  PCC                 0.981     0.9841     0.0387     0.0388     0.0015 0.944 1.000
+  AAG                 1.604     1.6063     0.0638     0.0622     0.0041 0.942 1.000
+
+ MEMQ     BY
+  SCECORR             1.000     1.0000     0.0000     0.0000     0.0000 1.000 0.000
+  COLCORR             0.525     0.5322     0.0985     0.1283     0.0097 0.976 0.990
+  EMOCORR             0.519     0.5303     0.1001     0.1255     0.0101 0.972 0.994
+
+ MEMQ       ON
+  VPMN                2.294     2.2738     0.6534     0.7355     0.4265 0.958 0.908
+  DPMN               -0.296    -0.2668     0.3924     0.4189     0.1545 0.952 0.094
+
+ VPMN     WITH
+  DPMN                0.009     0.0090     0.0005     0.0005     0.0000 0.950 1.000
+
+ Variances
+  VPMN                0.010     0.0100     0.0006     0.0006     0.0000 0.930 1.000
+  DPMN                0.020     0.0200     0.0013     0.0013     0.0000 0.946 1.000
+
+ Residual Variances
+  PHIPP               0.019     0.0190     0.0005     0.0005     0.0000 0.938 1.000
+  PREC                0.024     0.0240     0.0007     0.0007     0.0000 0.920 1.000
+  PCC                 0.022     0.0220     0.0007     0.0007     0.0000 0.918 1.000
+  MPFC                0.055     0.0550     0.0016     0.0014     0.0000 0.904 1.000
+  PHC                 0.019     0.0190     0.0006     0.0006     0.0000 0.934 1.000
+  RSC                 0.015     0.0150     0.0005     0.0005     0.0000 0.922 1.000
+  AAG                 0.050     0.0501     0.0019     0.0016     0.0000 0.902 1.000
+  PAG                 0.054     0.0540     0.0017     0.0017     0.0000 0.946 1.000
+  MEMQ                0.958     0.9922     0.2950     0.3750     0.0880 0.956 0.876
+
+Between Level
+
+ MEMQB    BY
+  SCECORR             1.000     1.0000     0.0000     0.0000     0.0000 1.000 0.000
+  COLCORR             0.525     0.5322     0.0985     0.1283     0.0097 0.976 0.990
+  EMOCORR             0.519     0.5303     0.1001     0.1255     0.0101 0.972 0.994
+
+ MEMQB    WITH
+  PHIPP               0.007     0.0065     0.0048     0.0048     0.0000 0.930 0.192
+  PREC                0.030     0.0286     0.0126     0.0140     0.0002 0.908 0.588
+  PCC                 0.017     0.0159     0.0118     0.0136     0.0001 0.932 0.134
+  MPFC               -0.004    -0.0036     0.0077     0.0077     0.0001 0.966 0.036
+  PHC                 0.019     0.0184     0.0108     0.0123     0.0001 0.914 0.266
+  RSC                 0.034     0.0324     0.0114     0.0130     0.0001 0.908 0.928
+  AAG                 0.011     0.0080     0.0220     0.0288     0.0005 0.962 0.042
+  PAG                 0.009     0.0089     0.0162     0.0189     0.0003 0.980 0.034
+
+ PHIPP    WITH
+  PREC                0.001     0.0010     0.0005     0.0006     0.0000 0.920 0.334
+  PCC                 0.001     0.0010     0.0006     0.0006     0.0000 0.920 0.282
+  MPFC                0.000     0.0000     0.0004     0.0004     0.0000 0.968 0.032
+  PHC                 0.000     0.0000     0.0005     0.0004     0.0000 0.952 0.048
+  RSC                 0.001     0.0010     0.0004     0.0005     0.0000 0.900 0.546
+  AAG                 0.001     0.0009     0.0010     0.0010     0.0000 0.926 0.090
+  PAG                -0.001    -0.0010     0.0008     0.0008     0.0000 0.916 0.176
+
+ PREC     WITH
+  PCC                 0.002     0.0020     0.0013     0.0013     0.0000 0.922 0.238
+  MPFC                0.001     0.0010     0.0009     0.0009     0.0000 0.922 0.104
+  PHC                 0.002     0.0019     0.0012     0.0012     0.0000 0.910 0.306
+  RSC                 0.002     0.0019     0.0010     0.0010     0.0000 0.904 0.410
+  AAG                -0.001    -0.0012     0.0023     0.0022     0.0000 0.964 0.058
+  PAG                -0.001    -0.0010     0.0019     0.0017     0.0000 0.950 0.072
+
+ PCC      WITH
+  MPFC                0.001     0.0010     0.0009     0.0009     0.0000 0.944 0.094
+  PHC                 0.000     0.0000     0.0012     0.0011     0.0000 0.982 0.018
+  RSC                 0.002     0.0019     0.0010     0.0011     0.0000 0.932 0.344
+  AAG                 0.001     0.0009     0.0024     0.0023     0.0000 0.958 0.040
+  PAG                -0.002    -0.0019     0.0020     0.0019     0.0000 0.932 0.114
+
+ MPFC     WITH
+  PHC                -0.001    -0.0009     0.0008     0.0008     0.0000 0.950 0.126
+  RSC                 0.000     0.0000     0.0007     0.0007     0.0000 0.968 0.032
+  AAG                 0.001     0.0010     0.0017     0.0017     0.0000 0.946 0.046
+  PAG                -0.001    -0.0009     0.0014     0.0013     0.0000 0.956 0.078
+
+ PHC      WITH
+  RSC                 0.000     0.0000     0.0009     0.0008     0.0000 0.966 0.034
+  AAG                -0.006    -0.0059     0.0023     0.0026     0.0000 0.918 0.766
+  PAG                 0.001     0.0009     0.0017     0.0016     0.0000 0.934 0.062
+
+ RSC      WITH
+  AAG                 0.003     0.0028     0.0019     0.0019     0.0000 0.900 0.216
+  PAG                -0.001    -0.0009     0.0014     0.0014     0.0000 0.944 0.062
+
+ AAG      WITH
+  PAG                 0.003     0.0028     0.0037     0.0034     0.0000 0.920 0.080
+
+ Means
+  PHIPP               0.077     0.0772     0.0065     0.0068     0.0000 0.962 1.000
+  PREC                0.113     0.1125     0.0155     0.0157     0.0002 0.956 1.000
+  PCC                 0.143     0.1418     0.0163     0.0169     0.0003 0.968 1.000
+  MPFC                0.134     0.1330     0.0111     0.0116     0.0001 0.960 1.000
+  PHC                -0.029    -0.0287     0.0139     0.0142     0.0002 0.942 0.516
+  RSC                 0.048     0.0484     0.0124     0.0127     0.0002 0.946 0.970
+  AAG                 0.189     0.1882     0.0302     0.0305     0.0009 0.942 1.000
+  PAG                -0.008    -0.0080     0.0243     0.0237     0.0006 0.936 0.078
+
+ Thresholds
+  SCECORR$1          -0.712    -0.7241     0.1511     0.1520     0.0229 0.930 0.994
+  COLCORR$1          -0.715    -0.7182     0.0901     0.0903     0.0081 0.930 1.000
+  EMOCORR$1          -0.832    -0.8372     0.0866     0.0854     0.0075 0.944 1.000
+
+ Variances
+  PHIPP               0.001     0.0010     0.0003     0.0004     0.0000 0.902 0.974
+  PREC                0.006     0.0059     0.0017     0.0019     0.0000 0.902 0.998
+  PCC                 0.007     0.0067     0.0018     0.0022     0.0000 0.924 1.000
+  MPFC                0.003     0.0028     0.0010     0.0011     0.0000 0.910 0.958
+  PHC                 0.005     0.0049     0.0013     0.0016     0.0000 0.924 0.990
+  RSC                 0.004     0.0038     0.0011     0.0013     0.0000 0.898 0.996
+  AAG                 0.023     0.0223     0.0063     0.0073     0.0000 0.914 0.994
+  PAG                 0.014     0.0134     0.0038     0.0045     0.0000 0.918 0.994
+  MEMQB               0.478     0.4727     0.1870     0.2292     0.0349 0.912 0.696
+
+ Residual Variances
+  SCECORR             0.037     0.0334     0.0822     0.0994     0.0068 0.992 0.040
+  COLCORR             0.066     0.0619     0.0366     0.0429     0.0014 0.946 0.242
+  EMOCORR             0.042     0.0383     0.0297     0.0370     0.0009 0.950 0.098
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Average Condition Number for the Information Matrix      0.621E-07
+       (ratio of smallest to largest eigenvalue)
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION FOR WITHIN
+
+
+           TAU
+              SCECORR$      COLCORR$      EMOCORR$
+              ________      ________      ________
+                    0             0             0
+
+
+           NU
+              SCECORR       COLCORR       EMOCORR       PHIPP         PREC
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              PAG
+              ________
+                    0
+
+
+           LAMBDA
+              VPMN          DPMN          MEMQ          PHIPP         PREC
+              ________      ________      ________      ________      ________
+ SCECORR            0             0             0             0             0
+ COLCORR            0             0             1             0             0
+ EMOCORR            0             0             2             0             0
+ PHIPP              0             0             0             0             0
+ PREC               0             0             0             0             0
+ PCC                0             0             0             0             0
+ MPFC               0             0             0             0             0
+ PHC                0             0             0             0             0
+ RSC                0             0             0             0             0
+ AAG                0             0             0             0             0
+ PAG                0             0             0             0             0
+
+
+           LAMBDA
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ SCECORR            0             0             0             0             0
+ COLCORR            0             0             0             0             0
+ EMOCORR            0             0             0             0             0
+ PHIPP              0             0             0             0             0
+ PREC               0             0             0             0             0
+ PCC                0             0             0             0             0
+ MPFC               0             0             0             0             0
+ PHC                0             0             0             0             0
+ RSC                0             0             0             0             0
+ AAG                0             0             0             0             0
+ PAG                0             0             0             0             0
+
+
+           LAMBDA
+              PAG
+              ________
+ SCECORR            0
+ COLCORR            0
+ EMOCORR            0
+ PHIPP              0
+ PREC               0
+ PCC                0
+ MPFC               0
+ PHC                0
+ RSC                0
+ AAG                0
+ PAG                0
+
+
+           THETA
+              SCECORR       COLCORR       EMOCORR       PHIPP         PREC
+              ________      ________      ________      ________      ________
+ SCECORR            0
+ COLCORR            0             0
+ EMOCORR            0             0             0
+ PHIPP              0             0             0             0
+ PREC               0             0             0             0             0
+ PCC                0             0             0             0             0
+ MPFC               0             0             0             0             0
+ PHC                0             0             0             0             0
+ RSC                0             0             0             0             0
+ AAG                0             0             0             0             0
+ PAG                0             0             0             0             0
+
+
+           THETA
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ PCC                0
+ MPFC               0             0
+ PHC                0             0             0
+ RSC                0             0             0             0
+ AAG                0             0             0             0             0
+ PAG                0             0             0             0             0
+
+
+           THETA
+              PAG
+              ________
+ PAG                0
+
+
+           ALPHA
+              VPMN          DPMN          MEMQ          PHIPP         PREC
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           ALPHA
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           ALPHA
+              PAG
+              ________
+                    0
+
+
+           BETA
+              VPMN          DPMN          MEMQ          PHIPP         PREC
+              ________      ________      ________      ________      ________
+ VPMN               0             0             0             0             0
+ DPMN               0             0             0             0             0
+ MEMQ               3             4             0             0             0
+ PHIPP              0             5             0             0             0
+ PREC               0             6             0             0             0
+ PCC                0             7             0             0             0
+ MPFC               0             0             0             0             0
+ PHC                8             0             0             0             0
+ RSC                0             0             0             0             0
+ AAG                0             9             0             0             0
+ PAG               10             0             0             0             0
+
+
+           BETA
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ VPMN               0             0             0             0             0
+ DPMN               0             0             0             0             0
+ MEMQ               0             0             0             0             0
+ PHIPP              0             0             0             0             0
+ PREC               0             0             0             0             0
+ PCC                0             0             0             0             0
+ MPFC               0             0             0             0             0
+ PHC                0             0             0             0             0
+ RSC                0             0             0             0             0
+ AAG                0             0             0             0             0
+ PAG                0             0             0             0             0
+
+
+           BETA
+              PAG
+              ________
+ VPMN               0
+ DPMN               0
+ MEMQ               0
+ PHIPP              0
+ PREC               0
+ PCC                0
+ MPFC               0
+ PHC                0
+ RSC                0
+ AAG                0
+ PAG                0
+
+
+           PSI
+              VPMN          DPMN          MEMQ          PHIPP         PREC
+              ________      ________      ________      ________      ________
+ VPMN              11
+ DPMN              12            13
+ MEMQ               0             0            14
+ PHIPP              0             0             0            15
+ PREC               0             0             0             0            16
+ PCC                0             0             0             0             0
+ MPFC               0             0             0             0             0
+ PHC                0             0             0             0             0
+ RSC                0             0             0             0             0
+ AAG                0             0             0             0             0
+ PAG                0             0             0             0             0
+
+
+           PSI
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ PCC               17
+ MPFC               0            18
+ PHC                0             0            19
+ RSC                0             0             0            20
+ AAG                0             0             0             0            21
+ PAG                0             0             0             0             0
+
+
+           PSI
+              PAG
+              ________
+ PAG               22
+
+
+     PARAMETER SPECIFICATION FOR BETWEEN
+
+
+           TAU
+              SCECORR$      COLCORR$      EMOCORR$
+              ________      ________      ________
+                   79            80            81
+
+
+           NU
+              SCECORR       COLCORR       EMOCORR       PHIPP         PREC
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              PAG
+              ________
+                    0
+
+
+           LAMBDA
+              MEMQB         PHIPP         PREC          PCC           MPFC
+              ________      ________      ________      ________      ________
+ SCECORR            0             0             0             0             0
+ COLCORR            1             0             0             0             0
+ EMOCORR            2             0             0             0             0
+ PHIPP              0             0             0             0             0
+ PREC               0             0             0             0             0
+ PCC                0             0             0             0             0
+ MPFC               0             0             0             0             0
+ PHC                0             0             0             0             0
+ RSC                0             0             0             0             0
+ AAG                0             0             0             0             0
+ PAG                0             0             0             0             0
+
+
+           LAMBDA
+              PHC           RSC           AAG           PAG
+              ________      ________      ________      ________
+ SCECORR            0             0             0             0
+ COLCORR            0             0             0             0
+ EMOCORR            0             0             0             0
+ PHIPP              0             0             0             0
+ PREC               0             0             0             0
+ PCC                0             0             0             0
+ MPFC               0             0             0             0
+ PHC                0             0             0             0
+ RSC                0             0             0             0
+ AAG                0             0             0             0
+ PAG                0             0             0             0
+
+
+           THETA
+              SCECORR       COLCORR       EMOCORR       PHIPP         PREC
+              ________      ________      ________      ________      ________
+ SCECORR           23
+ COLCORR            0            24
+ EMOCORR            0             0            25
+ PHIPP              0             0             0             0
+ PREC               0             0             0             0             0
+ PCC                0             0             0             0             0
+ MPFC               0             0             0             0             0
+ PHC                0             0             0             0             0
+ RSC                0             0             0             0             0
+ AAG                0             0             0             0             0
+ PAG                0             0             0             0             0
+
+
+           THETA
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ PCC                0
+ MPFC               0             0
+ PHC                0             0             0
+ RSC                0             0             0             0
+ AAG                0             0             0             0             0
+ PAG                0             0             0             0             0
+
+
+           THETA
+              PAG
+              ________
+ PAG                0
+
+
+           ALPHA
+              MEMQB         PHIPP         PREC          PCC           MPFC
+              ________      ________      ________      ________      ________
+                    0            26            27            28            29
+
+
+           ALPHA
+              PHC           RSC           AAG           PAG
+              ________      ________      ________      ________
+                   30            31            32            33
+
+
+           BETA
+              MEMQB         PHIPP         PREC          PCC           MPFC
+              ________      ________      ________      ________      ________
+ MEMQB              0             0             0             0             0
+ PHIPP              0             0             0             0             0
+ PREC               0             0             0             0             0
+ PCC                0             0             0             0             0
+ MPFC               0             0             0             0             0
+ PHC                0             0             0             0             0
+ RSC                0             0             0             0             0
+ AAG                0             0             0             0             0
+ PAG                0             0             0             0             0
+
+
+           BETA
+              PHC           RSC           AAG           PAG
+              ________      ________      ________      ________
+ MEMQB              0             0             0             0
+ PHIPP              0             0             0             0
+ PREC               0             0             0             0
+ PCC                0             0             0             0
+ MPFC               0             0             0             0
+ PHC                0             0             0             0
+ RSC                0             0             0             0
+ AAG                0             0             0             0
+ PAG                0             0             0             0
+
+
+           PSI
+              MEMQB         PHIPP         PREC          PCC           MPFC
+              ________      ________      ________      ________      ________
+ MEMQB             34
+ PHIPP             35            36
+ PREC              37            38            39
+ PCC               40            41            42            43
+ MPFC              44            45            46            47            48
+ PHC               49            50            51            52            53
+ RSC               55            56            57            58            59
+ AAG               62            63            64            65            66
+ PAG               70            71            72            73            74
+
+
+           PSI
+              PHC           RSC           AAG           PAG
+              ________      ________      ________      ________
+ PHC               54
+ RSC               60            61
+ AAG               67            68            69
+ PAG               75            76            77            78
+
+
+     STARTING VALUES FOR WITHIN
+
+
+           TAU
+              SCECORR$      COLCORR$      EMOCORR$
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           NU
+              SCECORR       COLCORR       EMOCORR       PHIPP         PREC
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              PAG
+              ________
+                0.000
+
+
+           LAMBDA
+              VPMN          DPMN          MEMQ          PHIPP         PREC
+              ________      ________      ________      ________      ________
+ SCECORR        0.000         0.000         1.000         0.000         0.000
+ COLCORR        0.000         0.000         0.525         0.000         0.000
+ EMOCORR        0.000         0.000         0.519         0.000         0.000
+ PHIPP          0.000         0.000         0.000         1.000         0.000
+ PREC           0.000         0.000         0.000         0.000         1.000
+ PCC            0.000         0.000         0.000         0.000         0.000
+ MPFC           0.000         0.000         0.000         0.000         0.000
+ PHC            0.000         0.000         0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ SCECORR        0.000         0.000         0.000         0.000         0.000
+ COLCORR        0.000         0.000         0.000         0.000         0.000
+ EMOCORR        0.000         0.000         0.000         0.000         0.000
+ PHIPP          0.000         0.000         0.000         0.000         0.000
+ PREC           0.000         0.000         0.000         0.000         0.000
+ PCC            1.000         0.000         0.000         0.000         0.000
+ MPFC           0.000         1.000         0.000         0.000         0.000
+ PHC            0.000         0.000         1.000         0.000         0.000
+ RSC            0.000         0.000         0.000         1.000         0.000
+ AAG            0.000         0.000         0.000         0.000         1.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              PAG
+              ________
+ SCECORR        0.000
+ COLCORR        0.000
+ EMOCORR        0.000
+ PHIPP          0.000
+ PREC           0.000
+ PCC            0.000
+ MPFC           0.000
+ PHC            0.000
+ RSC            0.000
+ AAG            0.000
+ PAG            1.000
+
+
+           THETA
+              SCECORR       COLCORR       EMOCORR       PHIPP         PREC
+              ________      ________      ________      ________      ________
+ SCECORR        1.000
+ COLCORR        0.000         1.000
+ EMOCORR        0.000         0.000         1.000
+ PHIPP          0.000         0.000         0.000         0.000
+ PREC           0.000         0.000         0.000         0.000         0.000
+ PCC            0.000         0.000         0.000         0.000         0.000
+ MPFC           0.000         0.000         0.000         0.000         0.000
+ PHC            0.000         0.000         0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ PCC            0.000
+ MPFC           0.000         0.000
+ PHC            0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              PAG
+              ________
+ PAG            0.000
+
+
+           ALPHA
+              VPMN          DPMN          MEMQ          PHIPP         PREC
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              PAG
+              ________
+                0.000
+
+
+           BETA
+              VPMN          DPMN          MEMQ          PHIPP         PREC
+              ________      ________      ________      ________      ________
+ VPMN           0.000         0.000         0.000         0.000         0.000
+ DPMN           0.000         0.000         0.000         0.000         0.000
+ MEMQ           2.294        -0.296         0.000         0.000         0.000
+ PHIPP          0.000         0.477         0.000         0.000         0.000
+ PREC           0.000         0.924         0.000         0.000         0.000
+ PCC            0.000         0.981         0.000         0.000         0.000
+ MPFC           0.000         1.000         0.000         0.000         0.000
+ PHC            0.959         0.000         0.000         0.000         0.000
+ RSC            1.000         0.000         0.000         0.000         0.000
+ AAG            0.000         1.604         0.000         0.000         0.000
+ PAG            1.807         0.000         0.000         0.000         0.000
+
+
+           BETA
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ VPMN           0.000         0.000         0.000         0.000         0.000
+ DPMN           0.000         0.000         0.000         0.000         0.000
+ MEMQ           0.000         0.000         0.000         0.000         0.000
+ PHIPP          0.000         0.000         0.000         0.000         0.000
+ PREC           0.000         0.000         0.000         0.000         0.000
+ PCC            0.000         0.000         0.000         0.000         0.000
+ MPFC           0.000         0.000         0.000         0.000         0.000
+ PHC            0.000         0.000         0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              PAG
+              ________
+ VPMN           0.000
+ DPMN           0.000
+ MEMQ           0.000
+ PHIPP          0.000
+ PREC           0.000
+ PCC            0.000
+ MPFC           0.000
+ PHC            0.000
+ RSC            0.000
+ AAG            0.000
+ PAG            0.000
+
+
+           PSI
+              VPMN          DPMN          MEMQ          PHIPP         PREC
+              ________      ________      ________      ________      ________
+ VPMN           0.010
+ DPMN           0.009         0.020
+ MEMQ           0.000         0.000         0.958
+ PHIPP          0.000         0.000         0.000         0.019
+ PREC           0.000         0.000         0.000         0.000         0.024
+ PCC            0.000         0.000         0.000         0.000         0.000
+ MPFC           0.000         0.000         0.000         0.000         0.000
+ PHC            0.000         0.000         0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ PCC            0.022
+ MPFC           0.000         0.055
+ PHC            0.000         0.000         0.019
+ RSC            0.000         0.000         0.000         0.015
+ AAG            0.000         0.000         0.000         0.000         0.050
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              PAG
+              ________
+ PAG            0.054
+
+
+     STARTING VALUES FOR BETWEEN
+
+
+           TAU
+              SCECORR$      COLCORR$      EMOCORR$
+              ________      ________      ________
+               -0.712        -0.715        -0.832
+
+
+           NU
+              SCECORR       COLCORR       EMOCORR       PHIPP         PREC
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              PAG
+              ________
+                0.000
+
+
+           LAMBDA
+              MEMQB         PHIPP         PREC          PCC           MPFC
+              ________      ________      ________      ________      ________
+ SCECORR        1.000         0.000         0.000         0.000         0.000
+ COLCORR        0.525         0.000         0.000         0.000         0.000
+ EMOCORR        0.519         0.000         0.000         0.000         0.000
+ PHIPP          0.000         1.000         0.000         0.000         0.000
+ PREC           0.000         0.000         1.000         0.000         0.000
+ PCC            0.000         0.000         0.000         1.000         0.000
+ MPFC           0.000         0.000         0.000         0.000         1.000
+ PHC            0.000         0.000         0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              PHC           RSC           AAG           PAG
+              ________      ________      ________      ________
+ SCECORR        0.000         0.000         0.000         0.000
+ COLCORR        0.000         0.000         0.000         0.000
+ EMOCORR        0.000         0.000         0.000         0.000
+ PHIPP          0.000         0.000         0.000         0.000
+ PREC           0.000         0.000         0.000         0.000
+ PCC            0.000         0.000         0.000         0.000
+ MPFC           0.000         0.000         0.000         0.000
+ PHC            1.000         0.000         0.000         0.000
+ RSC            0.000         1.000         0.000         0.000
+ AAG            0.000         0.000         1.000         0.000
+ PAG            0.000         0.000         0.000         1.000
+
+
+           THETA
+              SCECORR       COLCORR       EMOCORR       PHIPP         PREC
+              ________      ________      ________      ________      ________
+ SCECORR        0.037
+ COLCORR        0.000         0.066
+ EMOCORR        0.000         0.000         0.042
+ PHIPP          0.000         0.000         0.000         0.000
+ PREC           0.000         0.000         0.000         0.000         0.000
+ PCC            0.000         0.000         0.000         0.000         0.000
+ MPFC           0.000         0.000         0.000         0.000         0.000
+ PHC            0.000         0.000         0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ PCC            0.000
+ MPFC           0.000         0.000
+ PHC            0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              PAG
+              ________
+ PAG            0.000
+
+
+           ALPHA
+              MEMQB         PHIPP         PREC          PCC           MPFC
+              ________      ________      ________      ________      ________
+                0.000         0.077         0.113         0.143         0.134
+
+
+           ALPHA
+              PHC           RSC           AAG           PAG
+              ________      ________      ________      ________
+               -0.029         0.048         0.189        -0.008
+
+
+           BETA
+              MEMQB         PHIPP         PREC          PCC           MPFC
+              ________      ________      ________      ________      ________
+ MEMQB          0.000         0.000         0.000         0.000         0.000
+ PHIPP          0.000         0.000         0.000         0.000         0.000
+ PREC           0.000         0.000         0.000         0.000         0.000
+ PCC            0.000         0.000         0.000         0.000         0.000
+ MPFC           0.000         0.000         0.000         0.000         0.000
+ PHC            0.000         0.000         0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              PHC           RSC           AAG           PAG
+              ________      ________      ________      ________
+ MEMQB          0.000         0.000         0.000         0.000
+ PHIPP          0.000         0.000         0.000         0.000
+ PREC           0.000         0.000         0.000         0.000
+ PCC            0.000         0.000         0.000         0.000
+ MPFC           0.000         0.000         0.000         0.000
+ PHC            0.000         0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000
+
+
+           PSI
+              MEMQB         PHIPP         PREC          PCC           MPFC
+              ________      ________      ________      ________      ________
+ MEMQB          0.478
+ PHIPP          0.007         0.001
+ PREC           0.030         0.001         0.006
+ PCC            0.017         0.001         0.002         0.007
+ MPFC          -0.004         0.000         0.001         0.001         0.003
+ PHC            0.019         0.000         0.002         0.000        -0.001
+ RSC            0.034         0.001         0.002         0.002         0.000
+ AAG            0.011         0.001        -0.001         0.001         0.001
+ PAG            0.009        -0.001        -0.001        -0.002        -0.001
+
+
+           PSI
+              PHC           RSC           AAG           PAG
+              ________      ________      ________      ________
+ PHC            0.005
+ RSC            0.000         0.004
+ AAG           -0.006         0.003         0.023
+ PAG            0.001        -0.001         0.003         0.014
+
+
+     POPULATION VALUES FOR WITHIN
+
+
+           TAU
+              SCECORR$      COLCORR$      EMOCORR$
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           NU
+              SCECORR       COLCORR       EMOCORR       PHIPP         PREC
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              PAG
+              ________
+                0.000
+
+
+           LAMBDA
+              VPMN          DPMN          MEMQ          PHIPP         PREC
+              ________      ________      ________      ________      ________
+ SCECORR        0.000         0.000         1.000         0.000         0.000
+ COLCORR        0.000         0.000         0.525         0.000         0.000
+ EMOCORR        0.000         0.000         0.519         0.000         0.000
+ PHIPP          0.000         0.000         0.000         1.000         0.000
+ PREC           0.000         0.000         0.000         0.000         1.000
+ PCC            0.000         0.000         0.000         0.000         0.000
+ MPFC           0.000         0.000         0.000         0.000         0.000
+ PHC            0.000         0.000         0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ SCECORR        0.000         0.000         0.000         0.000         0.000
+ COLCORR        0.000         0.000         0.000         0.000         0.000
+ EMOCORR        0.000         0.000         0.000         0.000         0.000
+ PHIPP          0.000         0.000         0.000         0.000         0.000
+ PREC           0.000         0.000         0.000         0.000         0.000
+ PCC            1.000         0.000         0.000         0.000         0.000
+ MPFC           0.000         1.000         0.000         0.000         0.000
+ PHC            0.000         0.000         1.000         0.000         0.000
+ RSC            0.000         0.000         0.000         1.000         0.000
+ AAG            0.000         0.000         0.000         0.000         1.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              PAG
+              ________
+ SCECORR        0.000
+ COLCORR        0.000
+ EMOCORR        0.000
+ PHIPP          0.000
+ PREC           0.000
+ PCC            0.000
+ MPFC           0.000
+ PHC            0.000
+ RSC            0.000
+ AAG            0.000
+ PAG            1.000
+
+
+           THETA
+              SCECORR       COLCORR       EMOCORR       PHIPP         PREC
+              ________      ________      ________      ________      ________
+ SCECORR        0.000
+ COLCORR        0.000         0.000
+ EMOCORR        0.000         0.000         0.000
+ PHIPP          0.000         0.000         0.000         0.000
+ PREC           0.000         0.000         0.000         0.000         0.000
+ PCC            0.000         0.000         0.000         0.000         0.000
+ MPFC           0.000         0.000         0.000         0.000         0.000
+ PHC            0.000         0.000         0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ PCC            0.000
+ MPFC           0.000         0.000
+ PHC            0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              PAG
+              ________
+ PAG            0.000
+
+
+           ALPHA
+              VPMN          DPMN          MEMQ          PHIPP         PREC
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              PAG
+              ________
+                0.000
+
+
+           BETA
+              VPMN          DPMN          MEMQ          PHIPP         PREC
+              ________      ________      ________      ________      ________
+ VPMN           0.000         0.000         0.000         0.000         0.000
+ DPMN           0.000         0.000         0.000         0.000         0.000
+ MEMQ           2.294        -0.296         0.000         0.000         0.000
+ PHIPP          0.000         0.477         0.000         0.000         0.000
+ PREC           0.000         0.924         0.000         0.000         0.000
+ PCC            0.000         0.981         0.000         0.000         0.000
+ MPFC           0.000         1.000         0.000         0.000         0.000
+ PHC            0.959         0.000         0.000         0.000         0.000
+ RSC            1.000         0.000         0.000         0.000         0.000
+ AAG            0.000         1.604         0.000         0.000         0.000
+ PAG            1.807         0.000         0.000         0.000         0.000
+
+
+           BETA
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ VPMN           0.000         0.000         0.000         0.000         0.000
+ DPMN           0.000         0.000         0.000         0.000         0.000
+ MEMQ           0.000         0.000         0.000         0.000         0.000
+ PHIPP          0.000         0.000         0.000         0.000         0.000
+ PREC           0.000         0.000         0.000         0.000         0.000
+ PCC            0.000         0.000         0.000         0.000         0.000
+ MPFC           0.000         0.000         0.000         0.000         0.000
+ PHC            0.000         0.000         0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              PAG
+              ________
+ VPMN           0.000
+ DPMN           0.000
+ MEMQ           0.000
+ PHIPP          0.000
+ PREC           0.000
+ PCC            0.000
+ MPFC           0.000
+ PHC            0.000
+ RSC            0.000
+ AAG            0.000
+ PAG            0.000
+
+
+           PSI
+              VPMN          DPMN          MEMQ          PHIPP         PREC
+              ________      ________      ________      ________      ________
+ VPMN           0.010
+ DPMN           0.009         0.020
+ MEMQ           0.000         0.000         0.958
+ PHIPP          0.000         0.000         0.000         0.019
+ PREC           0.000         0.000         0.000         0.000         0.024
+ PCC            0.000         0.000         0.000         0.000         0.000
+ MPFC           0.000         0.000         0.000         0.000         0.000
+ PHC            0.000         0.000         0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ PCC            0.022
+ MPFC           0.000         0.055
+ PHC            0.000         0.000         0.019
+ RSC            0.000         0.000         0.000         0.015
+ AAG            0.000         0.000         0.000         0.000         0.050
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              PAG
+              ________
+ PAG            0.054
+
+
+     POPULATION VALUES FOR BETWEEN
+
+
+           TAU
+              SCECORR$      COLCORR$      EMOCORR$
+              ________      ________      ________
+               -0.712        -0.715        -0.832
+
+
+           NU
+              SCECORR       COLCORR       EMOCORR       PHIPP         PREC
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              PAG
+              ________
+                0.000
+
+
+           LAMBDA
+              MEMQB         PHIPP         PREC          PCC           MPFC
+              ________      ________      ________      ________      ________
+ SCECORR        1.000         0.000         0.000         0.000         0.000
+ COLCORR        0.525         0.000         0.000         0.000         0.000
+ EMOCORR        0.519         0.000         0.000         0.000         0.000
+ PHIPP          0.000         1.000         0.000         0.000         0.000
+ PREC           0.000         0.000         1.000         0.000         0.000
+ PCC            0.000         0.000         0.000         1.000         0.000
+ MPFC           0.000         0.000         0.000         0.000         1.000
+ PHC            0.000         0.000         0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              PHC           RSC           AAG           PAG
+              ________      ________      ________      ________
+ SCECORR        0.000         0.000         0.000         0.000
+ COLCORR        0.000         0.000         0.000         0.000
+ EMOCORR        0.000         0.000         0.000         0.000
+ PHIPP          0.000         0.000         0.000         0.000
+ PREC           0.000         0.000         0.000         0.000
+ PCC            0.000         0.000         0.000         0.000
+ MPFC           0.000         0.000         0.000         0.000
+ PHC            1.000         0.000         0.000         0.000
+ RSC            0.000         1.000         0.000         0.000
+ AAG            0.000         0.000         1.000         0.000
+ PAG            0.000         0.000         0.000         1.000
+
+
+           THETA
+              SCECORR       COLCORR       EMOCORR       PHIPP         PREC
+              ________      ________      ________      ________      ________
+ SCECORR        0.037
+ COLCORR        0.000         0.066
+ EMOCORR        0.000         0.000         0.042
+ PHIPP          0.000         0.000         0.000         0.000
+ PREC           0.000         0.000         0.000         0.000         0.000
+ PCC            0.000         0.000         0.000         0.000         0.000
+ MPFC           0.000         0.000         0.000         0.000         0.000
+ PHC            0.000         0.000         0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              PCC           MPFC          PHC           RSC           AAG
+              ________      ________      ________      ________      ________
+ PCC            0.000
+ MPFC           0.000         0.000
+ PHC            0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              PAG
+              ________
+ PAG            0.000
+
+
+           ALPHA
+              MEMQB         PHIPP         PREC          PCC           MPFC
+              ________      ________      ________      ________      ________
+                0.000         0.077         0.113         0.143         0.134
+
+
+           ALPHA
+              PHC           RSC           AAG           PAG
+              ________      ________      ________      ________
+               -0.029         0.048         0.189        -0.008
+
+
+           BETA
+              MEMQB         PHIPP         PREC          PCC           MPFC
+              ________      ________      ________      ________      ________
+ MEMQB          0.000         0.000         0.000         0.000         0.000
+ PHIPP          0.000         0.000         0.000         0.000         0.000
+ PREC           0.000         0.000         0.000         0.000         0.000
+ PCC            0.000         0.000         0.000         0.000         0.000
+ MPFC           0.000         0.000         0.000         0.000         0.000
+ PHC            0.000         0.000         0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              PHC           RSC           AAG           PAG
+              ________      ________      ________      ________
+ MEMQB          0.000         0.000         0.000         0.000
+ PHIPP          0.000         0.000         0.000         0.000
+ PREC           0.000         0.000         0.000         0.000
+ PCC            0.000         0.000         0.000         0.000
+ MPFC           0.000         0.000         0.000         0.000
+ PHC            0.000         0.000         0.000         0.000
+ RSC            0.000         0.000         0.000         0.000
+ AAG            0.000         0.000         0.000         0.000
+ PAG            0.000         0.000         0.000         0.000
+
+
+           PSI
+              MEMQB         PHIPP         PREC          PCC           MPFC
+              ________      ________      ________      ________      ________
+ MEMQB          0.478
+ PHIPP          0.007         0.001
+ PREC           0.030         0.001         0.006
+ PCC            0.017         0.001         0.002         0.007
+ MPFC          -0.004         0.000         0.001         0.001         0.003
+ PHC            0.019         0.000         0.002         0.000        -0.001
+ RSC            0.034         0.001         0.002         0.002         0.000
+ AAG            0.011         0.001        -0.001         0.001         0.001
+ PAG            0.009        -0.001        -0.001        -0.002        -0.001
+
+
+           PSI
+              PHC           RSC           AAG           PAG
+              ________      ________      ________      ________
+ PHC            0.005
+ RSC            0.000         0.004
+ AAG           -0.006         0.003         0.023
+ PAG            0.001        -0.001         0.003         0.014
+
+
+TECHNICAL 9 OUTPUT
+
+  Error messages for each replication (if any)
+
+
+
+     Beginning Time:  09:21:39
+        Ending Time:  19:05:54
+       Elapsed Time:  09:44:15
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2018 Muthen & Muthen

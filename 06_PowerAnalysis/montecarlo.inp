@@ -1,0 +1,95 @@
+Montecarlo:
+names are 
+pHipp PREC PCC MPFC PHC RSC aAG pAG SceCorr ColCorr EmoCorr;
+nobservations = 3888;
+ncsizes = 2;
+csizes = 22 (144) 6 (120);
+nreps = 500;
+generate = SceCorr (1) ColCorr (1) EmoCorr (1);
+categorical = SceCorr ColCorr EmoCorr;
+seed = 469385;
+
+Analysis:
+type is twolevel;
+estimator is wlsmv;
+
+Model population:
+%within%
+vPMN by RSC@1 PHC*0.959 pAG*1.807;
+dPMN by MPFC@1 pHIPP*0.477 PREC*0.924 PCC*0.981 aAG*1.604;
+MemQ by SceCorr@1  
+        ColCorr*0.525 (2)
+        EmoCorr*0.519 (3);
+MemQ on vPMN*2.294 dPMN*-0.296;
+vPMN with dPMN*0.009;
+vPMN*0.010 dPMN*0.020;
+pHIPP*0.019 PREC*0.024 PCC*0.022 MPFC*0.055;
+PHC*0.019 RSC*0.015 aAG*0.050 pAG*0.054;
+MemQ*0.958;
+
+%between%
+MemQb by SceCorr@1  
+         ColCorr*0.525 (2)
+         EmoCorr*0.519 (3);
+pHIPP*0.001 PREC*0.006 PCC*0.007 MPFC*0.003;
+PHC*0.005 RSC*0.004 aAG*0.023 pAG*0.014;
+MemQb*0.478;
+MemQb with pHIPP*0.007 PREC*0.030 PCC*0.017 MPFC*-0.004;
+MemQb with PHC*0.019 RSC*0.034 aAG*0.011 pAG*0.009;
+
+pHipp with PREC*0.001 PCC*0.001 MPFC*0.000 PHC*0.000;
+pHipp with RSC*0.001 aAG*0.001 pAG*-0.001;
+PREC with PCC*0.002 MPFC*0.001 PHC*0.002 RSC*0.002 aAG*-0.001 pAG*-0.001;
+PCC with MPFC*0.001 PHC*0.000 RSC*0.002 aAG*0.001 pAG*-0.002;
+MPFC with PHC*-0.001 RSC*0.000 aAG*0.001 pAG*-0.001;
+PHC with RSC*0.000 aAG*-0.006 pAG*0.001;
+RSC with aAG*0.003 pAG*-0.001;
+aAG with pAG*0.003;
+
+SCECORR*0.037 COLCORR*0.066 EMOCORR*0.042;
+
+[pHIPP*0.077 PREC*0.113 PCC*0.143 MPFC*0.134];
+[PHC*-0.029 RSC*0.048 aAG*0.189 pAG*-0.008];
+[SCECORR$1*-0.712 COLCORR$1*-0.715 EMOCORR$1*-0.832];
+
+Model:
+%within%
+vPMN by RSC@1 PHC*0.959 pAG*1.807;
+dPMN by MPFC@1 pHIPP*0.477 PREC*0.924 PCC*0.981 aAG*1.604;
+MemQ by SceCorr@1  
+        ColCorr*0.525 (2)
+        EmoCorr*0.519 (3);
+MemQ on vPMN*2.294 dPMN*-0.296;
+vPMN with dPMN*0.009;
+vPMN*0.010 dPMN*0.020;
+pHIPP*0.019 PREC*0.024 PCC*0.022 MPFC*0.055;
+PHC*0.019 RSC*0.015 aAG*0.050 pAG*0.054;
+MemQ*0.958;
+
+%between%
+MemQb by SceCorr@1  
+         ColCorr*0.525 (2)
+         EmoCorr*0.519 (3);
+pHIPP*0.001 PREC*0.006 PCC*0.007 MPFC*0.003;
+PHC*0.005 RSC*0.004 aAG*0.023 pAG*0.014;
+MemQb*0.478;
+MemQb with pHIPP*0.007 PREC*0.030 PCC*0.017 MPFC*-0.004;
+MemQb with PHC*0.019 RSC*0.034 aAG*0.011 pAG*0.009;
+
+pHipp with PREC*0.001 PCC*0.001 MPFC*0.000 PHC*0.000;
+pHipp with RSC*0.001 aAG*0.001 pAG*-0.001;
+PREC with PCC*0.002 MPFC*0.001 PHC*0.002 RSC*0.002 aAG*-0.001 pAG*-0.001;
+PCC with MPFC*0.001 PHC*0.000 RSC*0.002 aAG*0.001 pAG*-0.002;
+MPFC with PHC*-0.001 RSC*0.000 aAG*0.001 pAG*-0.001;
+PHC with RSC*0.000 aAG*-0.006 pAG*0.001;
+RSC with aAG*0.003 pAG*-0.001;
+aAG with pAG*0.003;
+
+SCECORR*0.037 COLCORR*0.066 EMOCORR*0.042;
+
+[pHIPP*0.077 PREC*0.113 PCC*0.143 MPFC*0.134];
+[PHC*-0.029 RSC*0.048 aAG*0.189 pAG*-0.008];
+[SCECORR$1*-0.712 COLCORR$1*-0.715 EMOCORR$1*-0.832];
+
+Output:
+tech9;
