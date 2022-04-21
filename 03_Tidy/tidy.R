@@ -29,7 +29,7 @@ calc_quality <- function(x, thresh) {
 # define full paths to key directories and files
 
 root <- "~/Desktop/Additive_Redundant_Manuscript/"
-extracted_data_file <- file.path(root, "intermediate", "01_Extracted_ROI_data_1s.csv")
+extracted_data_file <- file.path(root, "intermediate", "02_Extracted_ROI_data_1s.csv")
 orbit_data_dir <- file.path(root, "orbit-data")
 SS_exclusions_file <- file.path(orbit_data_dir, "derivs", "excluded-runs-elife.csv")
 behav_file <- file.path(orbit_data_dir, "behavior", "AllData_OrbitfMRI-behavior.csv")

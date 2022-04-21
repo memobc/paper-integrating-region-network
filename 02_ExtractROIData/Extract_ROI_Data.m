@@ -1,7 +1,7 @@
 % Extract single trial estimates from select ROIs. Write output to a csv file for further analysis
 
 % full path to the directory this script is stored in
-root = fileparts(mfilename('fullpath'));
+root = fileparts(fileparts(mfilename('fullpath')));
 
 % add spm12 to the search path
 spm_dir = fullfile(root, 'spm12');

@@ -1,0 +1,594 @@
+Mplus VERSION 8.2 (Linux)
+MUTHEN & MUTHEN
+04/12/2022  11:20 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE: Two Factor Model -- All Memory Features -- PHC
+  DATA: FILE is tidy_roi_data.dat;
+  VARIABLE:
+    NAMES are subject pHipp PREC PCC MPFC PHC RSC aAG pAG SceCorr ColCorr EmoCorr;
+    USEVARIABLES are subject pHipp PREC PCC MPFC PHC RSC aAG pAG SceCorr ColCorr EmoCorr;
+    CATEGORICAL = SceCorr ColCorr EmoCorr;
+    CLUSTER = subject;
+  ANALYSIS:
+  TYPE = TWOLEVEL;
+  ESTIMATOR = WLSMV;
+  MODEL:
+  %WITHIN%
+  vPMN BY RSC PHC pAG;
+  dPMN BY MPFC pHIPP PREC PCC aAG;
+  SceCorr ON vPMN dPMN PHC;
+  ColCorr ON vPMN dPMN PHC;
+  EmoCorr ON vPMN dPMN PHC;
+  SceCorr WITH ColCorr EmoCorr;
+  ColCorr WITH EmoCorr;
+  %BETWEEN%
+  pHipp-EmoCorr;
+  pHipp WITH PREC-EmoCorr;
+  PREC WITH PCC-EmoCorr;
+  PCC WITH MPFC-EmoCorr;
+  MPFC WITH PHC-EmoCorr;
+  PHC WITH RSC-EmoCorr;
+  RSC WITH aAG-EmoCorr;
+  aAG WITH pAG EmoCorr;
+  pAG WITH SceCorr-EmoCorr;
+  SceCorr WITH ColCorr EmoCorr;
+  ColCorr WITH EmoCorr;
+  Output:
+  stdyx
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Two Factor Model -- All Memory Features -- PHC
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3888
+
+Number of dependent variables                                   11
+Number of independent variables                                  0
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   PHIPP       PREC        PCC         MPFC        PHC         RSC
+   AAG         PAG
+
+  Binary and ordered categorical (ordinal)
+   SCECORR     COLCORR     EMOCORR
+
+Continuous latent variables
+   VPMN        DPMN
+
+Variables with special functions
+
+  Cluster variable      SUBJECT
+
+Estimator                                                    WLSMV
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                1000
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-02
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-02
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            10
+  Minimum value for logit thresholds                           -10
+  Minimum expected cell size for chi-square              0.100D-01
+Optimization algorithm                                      EMA/FS
+Integration Specifications
+  Type                                                    STANDARD
+  Number of integration points                                   7
+  Dimensions of numerical integration                            0
+  Adaptive quadrature                                           ON
+Link                                                        PROBIT
+Cholesky                                                        ON
+
+Input data file(s)
+  tidy_roi_data.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of clusters                         28
+
+     Average cluster size      138.857
+
+     Estimated Intraclass Correlations for the Y Variables
+
+                Intraclass              Intraclass              Intraclass
+     Variable  Correlation   Variable  Correlation   Variable  Correlation
+
+     SCECORR      0.205      COLCORR      0.135      EMOCORR      0.118
+     PHIPP        0.022      PREC         0.123      PCC          0.142
+     MPFC         0.036      PHC          0.155      RSC          0.138
+     AAG          0.184      PAG          0.138
+
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    SCECORR
+      Category 1    0.325         1262.000
+      Category 2    0.675         2626.000
+    COLCORR
+      Category 1    0.276         1075.000
+      Category 2    0.724         2813.000
+    EMOCORR
+      Category 1    0.242          942.000
+      Category 2    0.758         2946.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     PHIPP                 0.077       0.050      -0.614    0.03%      -0.048      0.041      0.078
+            3888.000       0.024       1.110       1.182    0.03%       0.116      0.205
+     PREC                  0.116       0.106      -0.923    0.03%      -0.061      0.060      0.111
+            3888.000       0.046       0.461       0.971    0.03%       0.160      0.286
+     PCC                   0.144       0.266      -0.614    0.03%      -0.037      0.080      0.134
+            3888.000       0.048       0.298       1.044    0.03%       0.186      0.321
+     MPFC                  0.135       0.079      -1.176    0.03%      -0.087      0.066      0.127
+            3888.000       0.078       0.576       1.308    0.03%       0.193      0.361
+     PHC                  -0.028      -0.225      -0.763    0.03%      -0.172     -0.065     -0.022
+            3888.000       0.033       0.661       1.048    0.03%       0.023      0.121
+     RSC                   0.049       0.067      -0.567    0.03%      -0.088      0.008      0.047
+            3888.000       0.029       0.510       0.808    0.03%       0.088      0.186
+     AAG                   0.188       0.072      -1.346    0.03%      -0.090      0.100      0.182
+            3888.000       0.124       0.548       1.648    0.03%       0.264      0.465
+     PAG                  -0.007      -0.151      -1.292    0.03%      -0.263     -0.075     -0.002
+            3888.000       0.099       0.328       1.232    0.03%       0.075      0.256
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                      104
+
+Chi-Square Test of Model Fit
+
+          Value                            746.665*
+          Degrees of Freedom                    36
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.071
+
+CFI/TLI
+
+          CFI                                0.962
+          TLI                                0.883
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                          18597.614
+          Degrees of Freedom                   110
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value for Within                   0.030
+          Value for Between                  0.029
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Within Level
+
+ VPMN     BY
+    RSC                1.000      0.000    999.000    999.000
+    PHC                0.958      0.015     65.965      0.000
+    PAG                1.807      0.034     53.868      0.000
+
+ DPMN     BY
+    MPFC               1.000      0.000    999.000    999.000
+    PHIPP              0.477      0.008     59.168      0.000
+    PREC               0.923      0.015     62.932      0.000
+    PCC                0.981      0.015     64.363      0.000
+    AAG                1.603      0.025     63.233      0.000
+
+ SCECORR    ON
+    VPMN               2.399      0.657      3.649      0.000
+    DPMN              -0.990      0.322     -3.072      0.002
+
+ COLCORR    ON
+    VPMN              -0.093      0.628     -0.148      0.882
+    DPMN               0.296      0.341      0.867      0.386
+
+ EMOCORR    ON
+    VPMN               0.096      0.695      0.138      0.890
+    DPMN               0.807      0.414      1.948      0.051
+
+ SCECORR    ON
+    PHC                0.319      0.282      1.129      0.259
+
+ COLCORR    ON
+    PHC                0.042      0.632      0.067      0.947
+
+ EMOCORR    ON
+    PHC               -0.022      0.568     -0.039      0.969
+
+ DPMN     WITH
+    VPMN               0.009      0.000     40.685      0.000
+
+ SCECORR  WITH
+    COLCORR            0.340      0.026     13.303      0.000
+    EMOCORR            0.312      0.027     11.680      0.000
+
+ COLCORR  WITH
+    EMOCORR            0.232      0.026      8.846      0.000
+
+ Variances
+    VPMN               0.010      0.000     43.271      0.000
+    DPMN               0.020      0.001     38.860      0.000
+
+ Residual Variances
+    PHIPP              0.019      0.000     83.905      0.000
+    PREC               0.024      0.000     60.895      0.000
+    PCC                0.022      0.000    108.595      0.000
+    MPFC               0.055      0.001     94.799      0.000
+    PHC                0.019      0.000     66.515      0.000
+    RSC                0.015      0.000     72.534      0.000
+    AAG                0.050      0.001     89.159      0.000
+    PAG                0.054      0.001    101.149      0.000
+
+Between Level
+
+ PHIPP    WITH
+    PREC               0.001      0.000      2.174      0.030
+    PCC                0.001      0.000      1.617      0.106
+    MPFC               0.000      0.000      0.202      0.840
+    PHC                0.000      0.000      0.021      0.983
+    RSC                0.001      0.000      1.216      0.224
+    AAG                0.001      0.001      1.596      0.111
+    PAG               -0.001      0.001     -0.818      0.413
+    SCECORR            0.005      0.003      1.563      0.118
+    COLCORR            0.003      0.002      1.519      0.129
+    EMOCORR            0.003      0.003      1.251      0.211
+
+ PREC     WITH
+    PCC                0.002      0.001      1.208      0.227
+    MPFC               0.001      0.001      0.733      0.463
+    PHC                0.002      0.001      1.745      0.081
+    RSC                0.002      0.001      2.525      0.012
+    AAG               -0.001      0.001     -0.727      0.467
+    PAG               -0.001      0.002     -0.401      0.688
+    SCECORR            0.021      0.012      1.759      0.079
+    COLCORR            0.012      0.007      1.764      0.078
+    EMOCORR            0.016      0.007      2.180      0.029
+
+ PCC      WITH
+    MPFC               0.001      0.001      1.305      0.192
+    PHC                0.000      0.001     -0.051      0.959
+    RSC                0.002      0.001      2.198      0.028
+    AAG                0.001      0.002      0.763      0.445
+    PAG               -0.002      0.002     -0.789      0.430
+    SCECORR            0.005      0.016      0.326      0.744
+    COLCORR            0.013      0.009      1.389      0.165
+    EMOCORR            0.006      0.010      0.659      0.510
+
+ MPFC     WITH
+    PHC               -0.001      0.001     -1.734      0.083
+    RSC                0.000      0.001      0.046      0.964
+    AAG                0.001      0.001      1.000      0.317
+    PAG               -0.001      0.001     -0.913      0.361
+    SCECORR           -0.004      0.005     -0.741      0.459
+    COLCORR           -0.004      0.006     -0.674      0.500
+    EMOCORR           -0.001      0.003     -0.278      0.781
+
+ PHC      WITH
+    RSC                0.000      0.001      0.029      0.977
+    AAG               -0.006      0.003     -2.255      0.024
+    PAG                0.001      0.001      1.231      0.218
+    SCECORR            0.012      0.007      1.652      0.098
+    COLCORR            0.008      0.007      1.190      0.234
+    EMOCORR            0.012      0.008      1.570      0.116
+
+ RSC      WITH
+    AAG                0.003      0.002      1.457      0.145
+    PAG               -0.001      0.001     -0.483      0.629
+    SCECORR            0.025      0.007      3.618      0.000
+    COLCORR            0.017      0.008      2.036      0.042
+    EMOCORR            0.015      0.005      2.841      0.005
+
+ AAG      WITH
+    PAG                0.003      0.002      1.043      0.297
+    EMOCORR           -0.001      0.010     -0.115      0.909
+
+ PAG      WITH
+    SCECORR            0.013      0.023      0.578      0.563
+    COLCORR            0.006      0.015      0.385      0.700
+    EMOCORR            0.000      0.012     -0.013      0.990
+
+ SCECORR  WITH
+    COLCORR            0.161      0.079      2.042      0.041
+    EMOCORR            0.159      0.078      2.054      0.040
+
+ COLCORR  WITH
+    EMOCORR            0.103      0.046      2.233      0.026
+
+ Means
+    PHIPP              0.077      0.005     14.881      0.000
+    PREC               0.113      0.016      7.080      0.000
+    PCC                0.143      0.023      6.252      0.000
+    MPFC               0.134      0.012     11.118      0.000
+    PHC               -0.029      0.019     -1.544      0.123
+    RSC                0.048      0.014      3.522      0.000
+    AAG                0.189      0.030      6.246      0.000
+    PAG               -0.008      0.029     -0.288      0.773
+
+ Thresholds
+    SCECORR$1         -0.515      0.110     -4.694      0.000
+    COLCORR$1         -0.633      0.078     -8.145      0.000
+    EMOCORR$1         -0.744      0.089     -8.352      0.000
+
+ Variances
+    SCECORR            0.269      0.136      1.972      0.049
+    COLCORR            0.156      0.066      2.366      0.018
+    EMOCORR            0.136      0.056      2.440      0.015
+    PHIPP              0.001      0.000      2.174      0.030
+    PREC               0.006      0.002      3.212      0.001
+    PCC                0.007      0.002      3.127      0.002
+    MPFC               0.003      0.001      3.197      0.001
+    PHC                0.005      0.001      4.177      0.000
+    RSC                0.004      0.001      4.956      0.000
+    AAG                0.023      0.008      2.836      0.005
+    PAG                0.014      0.004      3.566      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Within Level
+
+ VPMN     BY
+    RSC                0.627      0.006     98.295      0.000
+    PHC                0.566      0.008     68.233      0.000
+    PAG                0.608      0.007     92.873      0.000
+
+ DPMN     BY
+    MPFC               0.516      0.006     87.977      0.000
+    PHIPP              0.438      0.008     58.101      0.000
+    PREC               0.647      0.007     97.202      0.000
+    PCC                0.685      0.004    155.319      0.000
+    AAG                0.711      0.005    151.412      0.000
+
+ SCECORR    ON
+    VPMN               0.232      0.062      3.743      0.000
+    DPMN              -0.137      0.044     -3.143      0.002
+
+ COLCORR    ON
+    VPMN              -0.009      0.062     -0.148      0.882
+    DPMN               0.042      0.048      0.872      0.383
+
+ EMOCORR    ON
+    VPMN               0.009      0.068      0.138      0.890
+    DPMN               0.113      0.058      1.963      0.050
+
+ SCECORR    ON
+    PHC                0.052      0.046      1.127      0.260
+
+ COLCORR    ON
+    PHC                0.007      0.105      0.067      0.947
+
+ EMOCORR    ON
+    PHC               -0.004      0.094     -0.039      0.969
+
+ DPMN     WITH
+    VPMN               0.634      0.008     81.651      0.000
+
+ SCECORR  WITH
+    COLCORR            0.340      0.026     13.303      0.000
+    EMOCORR            0.312      0.027     11.680      0.000
+
+ COLCORR  WITH
+    EMOCORR            0.232      0.026      8.846      0.000
+
+ Variances
+    VPMN               1.000      0.000    999.000    999.000
+    DPMN               1.000      0.000    999.000    999.000
+
+ Residual Variances
+    PHIPP              0.809      0.007    122.721      0.000
+    PREC               0.581      0.009     67.505      0.000
+    PCC                0.531      0.006     87.792      0.000
+    MPFC               0.734      0.006    121.312      0.000
+    PHC                0.679      0.009     72.212      0.000
+    RSC                0.607      0.008     75.892      0.000
+    AAG                0.495      0.007     74.084      0.000
+    PAG                0.630      0.008     79.114      0.000
+
+Between Level
+
+ PHIPP    WITH
+    PREC               0.542      0.170      3.196      0.001
+    PCC                0.385      0.165      2.335      0.020
+    MPFC               0.032      0.154      0.205      0.838
+    PHC                0.005      0.229      0.021      0.983
+    RSC                0.392      0.293      1.339      0.181
+    AAG                0.394      0.195      2.024      0.043
+    PAG               -0.247      0.295     -0.836      0.403
+    SCECORR            0.443      0.197      2.242      0.025
+    COLCORR            0.375      0.195      1.927      0.054
+    EMOCORR            0.398      0.258      1.540      0.123
+
+ PREC     WITH
+    PCC                0.271      0.203      1.335      0.182
+    MPFC               0.142      0.186      0.763      0.445
+    PHC                0.412      0.194      2.124      0.034
+    RSC                0.505      0.130      3.876      0.000
+    AAG               -0.092      0.127     -0.726      0.468
+    PAG               -0.092      0.226     -0.405      0.685
+    SCECORR            0.525      0.172      3.051      0.002
+    COLCORR            0.409      0.146      2.794      0.005
+    EMOCORR            0.583      0.155      3.765      0.000
+
+ PCC      WITH
+    MPFC               0.232      0.152      1.522      0.128
+    PHC               -0.009      0.170     -0.051      0.959
+    RSC                0.433      0.149      2.909      0.004
+    AAG                0.107      0.132      0.810      0.418
+    PAG               -0.194      0.241     -0.805      0.421
+    SCECORR            0.123      0.378      0.326      0.745
+    COLCORR            0.387      0.193      2.000      0.046
+    EMOCORR            0.209      0.294      0.711      0.477
+
+ MPFC     WITH
+    PHC               -0.318      0.163     -1.953      0.051
+    RSC                0.010      0.230      0.046      0.964
+    AAG                0.145      0.135      1.079      0.281
+    PAG               -0.206      0.215     -0.957      0.339
+    SCECORR           -0.148      0.196     -0.754      0.451
+    COLCORR           -0.188      0.264     -0.713      0.476
+    EMOCORR           -0.044      0.160     -0.275      0.783
+
+ PHC      WITH
+    RSC                0.005      0.166      0.029      0.977
+    AAG               -0.548      0.143     -3.826      0.000
+    PAG                0.135      0.096      1.414      0.157
+    SCECORR            0.319      0.186      1.714      0.087
+    COLCORR            0.287      0.212      1.351      0.177
+    EMOCORR            0.464      0.237      1.961      0.050
+
+ RSC      WITH
+    AAG                0.272      0.164      1.659      0.097
+    PAG               -0.081      0.167     -0.484      0.629
+    SCECORR            0.764      0.158      4.827      0.000
+    COLCORR            0.670      0.284      2.363      0.018
+    EMOCORR            0.657      0.089      7.352      0.000
+
+ AAG      WITH
+    PAG                0.143      0.125      1.143      0.253
+    EMOCORR           -0.020      0.172     -0.114      0.909
+
+ PAG      WITH
+    SCECORR            0.214      0.345      0.620      0.535
+    COLCORR            0.127      0.316      0.402      0.687
+    EMOCORR           -0.004      0.288     -0.013      0.990
+
+ SCECORR  WITH
+    COLCORR            0.788      0.163      4.851      0.000
+    EMOCORR            0.833      0.156      5.322      0.000
+
+ COLCORR  WITH
+    EMOCORR            0.709      0.161      4.410      0.000
+
+ Means
+    PHIPP              3.358      0.781      4.300      0.000
+    PREC               1.501      0.263      5.717      0.000
+    PCC                1.735      0.277      6.252      0.000
+    MPFC               2.544      0.420      6.060      0.000
+    PHC               -0.409      0.243     -1.685      0.092
+    RSC                0.758      0.196      3.873      0.000
+    AAG                1.251      0.259      4.832      0.000
+    PAG               -0.070      0.238     -0.295      0.768
+
+ Thresholds
+    SCECORR$1         -0.503      0.107     -4.708      0.000
+    COLCORR$1         -0.633      0.077     -8.166      0.000
+    EMOCORR$1         -0.738      0.091     -8.143      0.000
+
+ Variances
+    SCECORR            1.000      0.000    999.000    999.000
+    COLCORR            1.000      0.000    999.000    999.000
+    EMOCORR            1.000      0.000    999.000    999.000
+    PHIPP              1.000      0.000    999.000    999.000
+    PREC               1.000      0.000    999.000    999.000
+    PCC                1.000      0.000    999.000    999.000
+    MPFC               1.000      0.000    999.000    999.000
+    PHC                1.000      0.000    999.000    999.000
+    RSC                1.000      0.000    999.000    999.000
+    AAG                1.000      0.000    999.000    999.000
+    PAG                1.000      0.000    999.000    999.000
+
+
+R-SQUARE
+
+Within Level
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    SCECORR            0.043      0.013      3.278      0.001      0.978
+    COLCORR            0.002      0.002      0.671      0.502      0.999
+    EMOCORR            0.014      0.009      1.629      0.103      0.993
+    PHIPP              0.191      0.007     29.051      0.000      0.000
+    PREC               0.419      0.009     48.601      0.000      0.000
+    PCC                0.469      0.006     77.660      0.000      0.000
+    MPFC               0.266      0.006     43.989      0.000      0.000
+    PHC                0.321      0.009     34.116      0.000      0.000
+    RSC                0.393      0.008     49.148      0.000      0.000
+    AAG                0.505      0.007     75.706      0.000      0.000
+    PAG                0.370      0.008     46.436      0.000      0.000
+
+Between Level
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.411E-08
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  11:20:50
+        Ending Time:  11:21:19
+       Elapsed Time:  00:00:29
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2018 Muthen & Muthen
